@@ -64,7 +64,11 @@ int main(void)
       //Set Low speed for GPIOA pin 4
      *GPIOA_OSPEEDER_REG &= ~(0x3 << 8);
 
-
+     /*GPIO PUPDR register, reset*/
+        //Set pull up for GPIOA pin 3 (input)
+      *GPIOA_PUPDR_REG |= (1 << 6);
+      //Set no pull for GPIOA pin 4
+      *GPIOA_PUPDR_REG &= ~(0x3 << 8);
 
   while (1)
   {
