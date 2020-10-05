@@ -60,6 +60,9 @@ int main(void)
      *GPIOA_MODER_REG	&= ~(uint32_t)(0x3 << 8);
      *GPIOA_MODER_REG	|= (uint32_t)(1 << 8);
 
+     /*GPIO OTYPER register*/
+       *GPIOA_OTYPER_REG &= ~(1 << 4);
+
      /*GPIO OSPEEDR register*/
       //Set Low speed for GPIOA pin 4
      *GPIOA_OSPEEDER_REG &= ~(0x3 << 8);
