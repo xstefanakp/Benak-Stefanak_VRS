@@ -53,7 +53,8 @@ int main(void)
   /* GPIOA pin 3 and 4 setup */
 
 	//type your code for GPIOA pins setup here:
-
+  //Set mode for pin 3
+   *GPIOA_MODER_REG 	&= ~(uint32_t)(0x3 << 6);
 
   while (1)
   {
