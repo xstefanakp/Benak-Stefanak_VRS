@@ -58,7 +58,14 @@ int main(void)
 
    //Set mode for pin 4
      *GPIOA_MODER_REG	&= ~(uint32_t)(0x3 << 8);
-     *GPIOA_MODER_REG	|= (uint32_t)(1 << 8)
+     *GPIOA_MODER_REG	|= (uint32_t)(1 << 8);
+
+     /*GPIO OSPEEDR register*/
+      //Set Low speed for GPIOA pin 4
+     *GPIOA_OSPEEDER_REG &= ~(0x3 << 8);
+
+
+
   while (1)
   {
 	  if(BUTTON_GET_STATE)
