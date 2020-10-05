@@ -46,7 +46,7 @@ int main(void)
 
 
   /* Enable clock for GPIO port A*/
-
+  RCC_AHBENR_REG |= (uint32_t)(1 << 17);
 	//type your code for GPIOA clock enable here:
 
 
