@@ -54,24 +54,24 @@ int main(void)
 
 	//type your code for GPIOA pins setup here:
   //Set mode for pin 3
-   *GPIOA_MODER_REG 	&= ~(uint32_t)(0x3 << 6);
+   *GPIOA_MODER_REG 	&= ~(uint32_t)(0x3 << 8);
 
    //Set mode for pin 4
-     *GPIOA_MODER_REG	&= ~(uint32_t)(0x3 << 8);
-     *GPIOA_MODER_REG	|= (uint32_t)(1 << 8);
+     *GPIOA_MODER_REG	&= ~(uint32_t)(0x3 << 10);
+     *GPIOA_MODER_REG	|= (uint32_t)(1 << 10);
 
      /*GPIO OTYPER register*/
-       *GPIOA_OTYPER_REG &= ~(1 << 4);
+       *GPIOA_OTYPER_REG &= ~(1 << 5);
 
      /*GPIO OSPEEDR register*/
       //Set Low speed for GPIOA pin 4
-     *GPIOA_OSPEEDER_REG &= ~(0x3 << 8);
+     *GPIOA_OSPEEDER_REG &= ~(0x3 << 10);
 
      /*GPIO PUPDR register, reset*/
         //Set pull up for GPIOA pin 3 (input)
-      *GPIOA_PUPDR_REG |= (1 << 6);
+      *GPIOA_PUPDR_REG |= (1 << 8);
       //Set no pull for GPIOA pin 4
-      *GPIOA_PUPDR_REG &= ~(0x3 << 8);
+      *GPIOA_PUPDR_REG &= ~(0x3 << 10);
 
   while (1)
   {
