@@ -302,58 +302,58 @@ int main(void)
 
 	//type your code for GPIOA pins setup here:
   //Set mode for pin 3
-   *GPIOA_MODER_REG 	&= ~(uint32_t)(0x3 << 8);
+   *GPIOA_MODER_REG 	&= ~(uint32_t)(0x3 << 6);
  80002da:	f04f 4390 	mov.w	r3, #1207959552	; 0x48000000
  80002de:	681b      	ldr	r3, [r3, #0]
  80002e0:	f04f 4290 	mov.w	r2, #1207959552	; 0x48000000
- 80002e4:	f423 7340 	bic.w	r3, r3, #768	; 0x300
+ 80002e4:	f023 03c0 	bic.w	r3, r3, #192	; 0xc0
  80002e8:	6013      	str	r3, [r2, #0]
 
    //Set mode for pin 4
-     *GPIOA_MODER_REG	&= ~(uint32_t)(0x3 << 10);
+     *GPIOA_MODER_REG	&= ~(uint32_t)(0x3 << 8);
  80002ea:	f04f 4390 	mov.w	r3, #1207959552	; 0x48000000
  80002ee:	681b      	ldr	r3, [r3, #0]
  80002f0:	f04f 4290 	mov.w	r2, #1207959552	; 0x48000000
- 80002f4:	f423 6340 	bic.w	r3, r3, #3072	; 0xc00
+ 80002f4:	f423 7340 	bic.w	r3, r3, #768	; 0x300
  80002f8:	6013      	str	r3, [r2, #0]
-     *GPIOA_MODER_REG	|= (uint32_t)(1 << 10);
+     *GPIOA_MODER_REG	|= (uint32_t)(1 << 8);
  80002fa:	f04f 4390 	mov.w	r3, #1207959552	; 0x48000000
  80002fe:	681b      	ldr	r3, [r3, #0]
  8000300:	f04f 4290 	mov.w	r2, #1207959552	; 0x48000000
- 8000304:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+ 8000304:	f443 7380 	orr.w	r3, r3, #256	; 0x100
  8000308:	6013      	str	r3, [r2, #0]
 
      /*GPIO OTYPER register*/
-       *GPIOA_OTYPER_REG &= ~(1 << 5);
+       *GPIOA_OTYPER_REG &= ~(1 << 4);
  800030a:	4b25      	ldr	r3, [pc, #148]	; (80003a0 <main+0xe8>)
  800030c:	681b      	ldr	r3, [r3, #0]
  800030e:	4a24      	ldr	r2, [pc, #144]	; (80003a0 <main+0xe8>)
- 8000310:	f023 0320 	bic.w	r3, r3, #32
+ 8000310:	f023 0310 	bic.w	r3, r3, #16
  8000314:	6013      	str	r3, [r2, #0]
 
      /*GPIO OSPEEDR register*/
       //Set Low speed for GPIOA pin 4
-     *GPIOA_OSPEEDER_REG &= ~(0x3 << 10);
+     *GPIOA_OSPEEDER_REG &= ~(0x3 << 8);
  8000316:	4b23      	ldr	r3, [pc, #140]	; (80003a4 <main+0xec>)
  8000318:	681b      	ldr	r3, [r3, #0]
  800031a:	4a22      	ldr	r2, [pc, #136]	; (80003a4 <main+0xec>)
- 800031c:	f423 6340 	bic.w	r3, r3, #3072	; 0xc00
+ 800031c:	f423 7340 	bic.w	r3, r3, #768	; 0x300
  8000320:	6013      	str	r3, [r2, #0]
 
      /*GPIO PUPDR register, reset*/
         //Set pull up for GPIOA pin 3 (input)
-      *GPIOA_PUPDR_REG |= (1 << 8);
+      *GPIOA_PUPDR_REG |= (1 << 6);
  8000322:	4b21      	ldr	r3, [pc, #132]	; (80003a8 <main+0xf0>)
  8000324:	681b      	ldr	r3, [r3, #0]
  8000326:	4a20      	ldr	r2, [pc, #128]	; (80003a8 <main+0xf0>)
- 8000328:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 8000328:	f043 0340 	orr.w	r3, r3, #64	; 0x40
  800032c:	6013      	str	r3, [r2, #0]
       //Set no pull for GPIOA pin 4
-      *GPIOA_PUPDR_REG &= ~(0x3 << 10);
+      *GPIOA_PUPDR_REG &= ~(0x3 << 8);
  800032e:	4b1e      	ldr	r3, [pc, #120]	; (80003a8 <main+0xf0>)
  8000330:	681b      	ldr	r3, [r3, #0]
  8000332:	4a1d      	ldr	r2, [pc, #116]	; (80003a8 <main+0xf0>)
- 8000334:	f423 6340 	bic.w	r3, r3, #3072	; 0xc00
+ 8000334:	f423 7340 	bic.w	r3, r3, #768	; 0x300
  8000338:	6013      	str	r3, [r2, #0]
 
   while (1)
@@ -361,7 +361,7 @@ int main(void)
 	  if(BUTTON_GET_STATE)
  800033a:	4b1c      	ldr	r3, [pc, #112]	; (80003ac <main+0xf4>)
  800033c:	681b      	ldr	r3, [r3, #0]
- 800033e:	f003 0310 	and.w	r3, r3, #16
+ 800033e:	f003 0308 	and.w	r3, r3, #8
  8000342:	2b00      	cmp	r3, #0
  8000344:	d112      	bne.n	800036c <main+0xb4>
 	  {
@@ -373,7 +373,7 @@ int main(void)
  800034c:	4b18      	ldr	r3, [pc, #96]	; (80003b0 <main+0xf8>)
  800034e:	681b      	ldr	r3, [r3, #0]
  8000350:	4a17      	ldr	r2, [pc, #92]	; (80003b0 <main+0xf8>)
- 8000352:	f043 0320 	orr.w	r3, r3, #32
+ 8000352:	f043 0310 	orr.w	r3, r3, #16
  8000356:	6013      	str	r3, [r2, #0]
 		  // 0.25s delay
 		  LL_mDelay(250);
@@ -383,7 +383,7 @@ int main(void)
  800035e:	4b15      	ldr	r3, [pc, #84]	; (80003b4 <main+0xfc>)
  8000360:	681b      	ldr	r3, [r3, #0]
  8000362:	4a14      	ldr	r2, [pc, #80]	; (80003b4 <main+0xfc>)
- 8000364:	f043 0320 	orr.w	r3, r3, #32
+ 8000364:	f043 0310 	orr.w	r3, r3, #16
  8000368:	6013      	str	r3, [r2, #0]
  800036a:	e7e6      	b.n	800033a <main+0x82>
 	  }
@@ -397,7 +397,7 @@ int main(void)
  8000374:	4b0e      	ldr	r3, [pc, #56]	; (80003b0 <main+0xf8>)
  8000376:	681b      	ldr	r3, [r3, #0]
  8000378:	4a0d      	ldr	r2, [pc, #52]	; (80003b0 <main+0xf8>)
- 800037a:	f043 0320 	orr.w	r3, r3, #32
+ 800037a:	f043 0310 	orr.w	r3, r3, #16
  800037e:	6013      	str	r3, [r2, #0]
 		  // 1s delay
 		  LL_mDelay(1000);
@@ -407,7 +407,7 @@ int main(void)
  8000388:	4b0a      	ldr	r3, [pc, #40]	; (80003b4 <main+0xfc>)
  800038a:	681b      	ldr	r3, [r3, #0]
  800038c:	4a09      	ldr	r2, [pc, #36]	; (80003b4 <main+0xfc>)
- 800038e:	f043 0320 	orr.w	r3, r3, #32
+ 800038e:	f043 0310 	orr.w	r3, r3, #16
  8000392:	6013      	str	r3, [r2, #0]
 	  if(BUTTON_GET_STATE)
  8000394:	e7d1      	b.n	800033a <main+0x82>
